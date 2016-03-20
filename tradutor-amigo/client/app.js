@@ -1,1 +1,1 @@
-angular.module('tradutor-amigo', ['angular-meteor', 'accounts.ui']);
+angular.module('tradutor-amigo', ['angular-meteor']);
