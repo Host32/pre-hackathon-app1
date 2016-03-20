@@ -1,1 +1,0 @@
-angular.module('tradutor-amigo', ['angular-meteor']);

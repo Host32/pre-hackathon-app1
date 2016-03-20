@@ -1,9 +1,18 @@
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Tradutor Amigo</title>
 </head>
 
-<body ng-app='tradutor-amigo'>
-    <h1>Hello World!</h1>
+<body ng-app="tradutor-amigo">
+    <div ng-controller="AppController">
+        <h1>Advanced(fetch once)</h1> Latitude: {{$geolocation.position.coords.latitude}}
+        <br /> Longitude: {{$geolocation.position.coords.longitude}}
+        <br /> Timestamp: {{$geolocation.position.timestamp}}
+
+        <ng-map zoom="4" center="-33, 151">
+            <marker position="{{$geolocation.position.coords.latitude}}, {{$geolocation.position.coords.longitude}}" icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png">
+            </marker>
+        </ng-map>
+    </div>
 </body>
