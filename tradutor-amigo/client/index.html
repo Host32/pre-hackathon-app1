@@ -11,44 +11,39 @@
     <div class="col-md-12 text-center">
         <login-buttons></login-buttons>
     </div>
-    <div class="col-md-12 text-center">
-        <h2><span class="label label-primary">Quais dos idiomas abaixo é de seu dominio:</span></h2>
-        <form class="form-group">
-            <div class="input-group row">
-                <div class="col-md-2">
-                    <span class="input-group-addon"> Português</span>
+    <div class="col-md-12">
+        <h2 class="text-center"><span class="label label-primary">Quais dos idiomas abaixo é de seu dominio:</span></h2>
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Português</label>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success">Sim</button>
+                        <button class="btn btn-danger">Não</button>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary">Sim</button>
-                    <button class="btn btn-danger">Não</button>
+                <div class="form-group">
+                    <label class="col-md-6 control-label">Inglês</label>
+                    <div class="col-md-6">
+                        <button class="btn btn-success">Sim</button>
+                        <button class="btn btn-danger">Não</button>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group row">
-                <div class="col-md-2">
-                    <span class="input-group-addon"> Inglês</span>
+                <div class="form-group">
+                    <label class="col-md-6 control-label">Espanhol</label>
+                    <div class="col-md-6">
+                        <button class="btn btn-success">Sim</button>
+                        <button class="btn btn-danger">Não</button>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary">Sim</button>
-                    <button class="btn btn-danger">Não</button>
+                <div class="form-group">
+                    <label class="col-md-5 control-label">Outros:</label>
+                    <div class="col-md-3">
+                        <input placeholder="Qual outro idioma você fala?" class="form-control input-md">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group row">
-                <div class="col-md-2">
-                    <span class="input-group-addon"> Espanhol</span>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary">Sim</button>
-                    <button class="btn btn-danger">Não</button>
-                </div>
-            </div>
-            <div class="input-group row">
-                <div class="col-md-2">
-                    <span class="input-group-addon"> Outro</span>
-                </div>
-                <div class="col-md-2">
-                    <input type="text" placeholder="Qual outro idioma você fala?">
-                </div>
-            </div>
+
+            </fieldset>
         </form>
     </div>
 </body>
