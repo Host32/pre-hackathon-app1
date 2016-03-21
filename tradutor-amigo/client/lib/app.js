@@ -1,1 +1,1 @@
-angular.module('tradutor-amigo', ['angular-meteor', 'ngGeolocation']);
+angular.module('tradutor-amigo', ['angular-meteor', 'ngGeolocation', 'accounts.ui']);

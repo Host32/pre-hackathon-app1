@@ -4,15 +4,53 @@
     <title>Tradutor Amigo</title>
 </head>
 
-<body ng-app="tradutor-amigo">
-    <div ng-controller="AppController">
-        <h1>Advanced(fetch once)</h1> Latitude: {{$geolocation.position.coords.latitude}}
-        <br /> Longitude: {{$geolocation.position.coords.longitude}}
-        <br /> Timestamp: {{$geolocation.position.timestamp}}
+<body ng-app='tradutor-amigo'>
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>Login!</h1>
+        </div>
+        <div class="col-md-12 text-center">
+            <login-buttons></login-buttons>
+        </div>
+        <div class="col-md-12">
+            <h2 class="text-center"><span class="label label-primary">Quais dos idiomas abaixo é de seu dominio:</span></h2>
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="form-group col-md-12 text-center">
+                        <label class="col-md-6 control-label">Português</label>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">Sim</button>
+                            <button class="btn btn-danger">Não</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 text-center">
+                        <label class="col-md-6 control-label">Inglês</label>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">Sim</button>
+                            <button class="btn btn-danger">Não</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 text-center">
+                        <label class="col-md-6 control-label">Espanhol</label>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">Sim</button>
+                            <button class="btn btn-danger">Não</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 text-center">
+                        <label class="col-md-5 control-label">Outros:</label>
+                        <div class="col-md-3">
+                            <input placeholder="Qual outro idioma você fala?" class="form-control input-md">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <input class="btn btn-primary" type="submit">
+                        </div>
+                    </div>
 
-        <ng-map zoom="4" center="-33, 151">
-            <marker position="{{$geolocation.position.coords.latitude}}, {{$geolocation.position.coords.longitude}}" icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png">
-            </marker>
-        </ng-map>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </body>
