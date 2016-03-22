@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Tradutor Amigo</title>
 </head>
 
@@ -47,6 +47,53 @@
                     </div>
                 </fieldset>
             </form>
+        <div class="col-md-12" ng-if="currentUser" ng-controller="AppController">
+            <div class="panel panel-default">
+                <div class="panel-heading">Nos diga quais idiomas estão sob seu dominio!</div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <div ng-repeat="idiomaSugerido in idiomasSugeridos" class="form-group col-md-12 text-center">
+                                <label class="col-md-6 control-label">Você sabe falar {{idiomaSugerido.nome}}?</label>
+                                <div class="col-sm-3">
+                                    <button type="button" class="btn btn-success" ng-click="euSeiFalar(idiomaSugerido)">Sim</button>
+                                    <button type="button" class="btn btn-danger" ng-click="euNaoSeiFalar(idiomaSugerido)">Ainda Não</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12 text-center">
+                                <label class="col-md-5 control-label">Outros:</label>
+                                <div class="col-md-3">
+                                    <input ng-model="idiomaDigitado" placeholder="Qual outro idioma você fala?" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button ng-click="adicionaIdiomaDigitado()" class="btn btn-primary" type="submit">Enviar</button>
+                                </div>
+                            </div>
+
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{idioma.nome}}!</li>
+                            </ul>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" ng-if="currentUser" ng-controller="MapController">
+            <div class="panel panel-default">
+                <div class="panel-heading">Veja quem está perto de você!</div>
+                <div class="panel-body">
+                    Latitude: {{location.coords.latitude}} Longitude: {{location.coords.longitude}}
+                    <ng-map zoom="4" center="{{mapLocation}}">
+                        <marker position="{{tradutor.latitude}}, {{tradutor.longitude}}" ng-repeat="tradutor in tradutoresAmigos" icon="/beachflag.png">
+                        </marker>
+                    </ng-map>
+                </div>
+            </div>
         </div>
     </div>
 </body>
