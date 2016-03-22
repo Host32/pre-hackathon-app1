@@ -48,5 +48,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-12" ng-if="currentUser" ng-controller="MapController">
+            <div class="panel panel-default">
+                <div class="panel-heading">Veja quem está perto de você!</div>
+                <div class="panel-body">
+                    Latitude: {{location.coords.latitude}} Longitude: {{location.coords.longitude}}
+                    <ng-map zoom="4" center="{{mapLocation}}">
+                        <marker position="{{tradutor.latitude}}, {{tradutor.longitude}}" ng-repeat="tradutor in tradutoresAmigos" icon="/beachflag.png">
+                        </marker>
+                    </ng-map>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
