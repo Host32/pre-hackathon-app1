@@ -20,3 +20,4 @@ angular
 mrt:bootstrap-3
 dotansimha:accounts-ui-angular
 accounts-facebook
+angular-meteor-auth
