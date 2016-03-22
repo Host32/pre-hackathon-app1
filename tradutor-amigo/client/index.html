@@ -5,14 +5,46 @@
 </head>
 
 <body ng-app='tradutor-amigo'>
-    <div class="container">
-        <div class="page-header text-center">
-            <h1>Login!</h1>
+    <div ng-if="!currentUser" class="container-fluid login-container">
+        <div class="text-center">
+            <div>
+                <h1>Tradutor Amigo</h1>
+                <h3>Tradutores a um clique de distância.</h3>
+                <h4>Nunca foi tão fácil se comunicar!</h4>
+            </div>
+            <div>
+                <login-buttons></login-buttons>
+            </div>
         </div>
-        <div class="col-md-12 text-center">
-            <login-buttons></login-buttons>
+    </div>
+
+    <div ng-if="!currentUser" class="background">
+        <div class="camuflagem">
         </div>
-        <div class="col-md-12" ng-if="currentUser" ng-controller="AppController">
+        <img src="/bg1.jpg" />
+    </div>
+
+    <div ng-if="currentUser">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Tradutor Amigo</a>
+                </div>
+
+                <div class="nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#">
+                                <login-buttons></login-buttons>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-12" ng-controller="AppController">
             <div class="panel panel-default">
                 <div class="panel-heading">Nos diga quais idiomas estão sob seu dominio!</div>
                 <div class="panel-body">
@@ -49,7 +81,7 @@
             </div>
         </div>
 
-        <div class="col-md-12" ng-if="currentUser" ng-controller="MapController">
+        <div class="col-md-12" ng-controller="MapController">
             <div class="panel panel-default">
                 <div class="panel-heading">Veja quem está perto de você!</div>
                 <div class="panel-body">
