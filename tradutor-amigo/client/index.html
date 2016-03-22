@@ -5,49 +5,46 @@
 </head>
 
 <body ng-app='tradutor-amigo'>
-    <div class="container">
-        <div class="page-header text-center">
-            <h1>Login!</h1>
+    <div ng-if="!currentUser" class="container-fluid login-container">
+        <div class="text-center">
+            <div>
+                <h1>Tradutor Amigo</h1>
+                <h3>Tradutores a um clique de distância.</h3>
+                <h4>Nunca foi tão fácil se comunicar!</h4>
+            </div>
+            <div>
+                <login-buttons></login-buttons>
+            </div>
         </div>
-        <div class="col-md-12 text-center">
-            <login-buttons></login-buttons>
+    </div>
+
+    <div ng-if="!currentUser" class="background">
+        <div class="camuflagem">
         </div>
-        <div class="col-md-12">
-            <h2 class="text-center"><span class="label label-primary">Quais dos idiomas abaixo é de seu dominio:</span></h2>
-            <form class="form-horizontal">
-                <fieldset>
-                    <div class="form-group col-md-12 text-center">
-                        <label class="col-md-6 control-label">Português</label>
-                        <div class="col-sm-2">
-                            <button class="btn btn-success">Sim</button>
-                            <button class="btn btn-danger">Ainda não</button>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-12 text-center">
-                        <label class="col-md-6 control-label">Inglês</label>
-                        <div class="col-sm-2">
-                            <button class="btn btn-success">Sim</button>
-                            <button class="btn btn-danger">Ainda não</button>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-12 text-center">
-                        <label class="col-md-6 control-label">Espanhol</label>
-                        <div class="col-sm-2">
-                            <button class="btn btn-success">Sim</button>
-                            <button class="btn btn-danger">Ainda não</button>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <div class="input-group col-md-6 control-label">
-                            <input class="form-control" placeholder="Quais outros idiomas você sabe?">
-                            <span class="input-group-btn">
-					       <input class="btn btn-primary" type="submit">
-				        </span>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-        <div class="col-md-12" ng-if="currentUser" ng-controller="AppController">
+        <img src="/bg1.jpg" />
+    </div>
+
+    <div ng-if="currentUser">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Tradutor Amigo</a>
+                </div>
+
+                <div class="nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#">
+                                <login-buttons></login-buttons>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-12" ng-controller="AppController">
             <div class="panel panel-default">
                 <div class="panel-heading">Nos diga quais idiomas estão sob seu dominio!</div>
                 <div class="panel-body">
@@ -83,7 +80,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12" ng-if="currentUser" ng-controller="MapController">
+
+        <div class="col-md-12" ng-controller="MapController">
             <div class="panel panel-default">
                 <div class="panel-heading">Veja quem está perto de você!</div>
                 <div class="panel-body">
@@ -95,5 +93,32 @@
                 </div>
             </div>
         </div>
+
+        <!-- MODAL IN MAP -->
+        <div ng-if="currentUser" ng-controller="AppController">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">{{usuarioId}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group">
+                                <li class="list-group-item text-center" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{idioma.nome}}!</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Entrar em contato</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / MODAL IN MAP -->
+
     </div>
 </body>
