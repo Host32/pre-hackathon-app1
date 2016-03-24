@@ -2,6 +2,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Tradutor Amigo</title>
+
+    <script src="https://maps.googleapis.com/maps/api/js">
+
+
+    </script>
 </head>
 
 <body ng-app='tradutor-amigo'>
@@ -81,47 +86,49 @@
             </div>
         </div>
 
-        <div class="col-md-12" ng-controller="MapController">
-            <div class="panel panel-default">
-                <div class="panel-heading">Veja quem está perto de você!</div>
-                <div class="panel-body">
-                    Latitude: {{location.coords.latitude}} Longitude: {{location.coords.longitude}}
-                    <ng-map zoom="4" center="{{mapLocation}}">
-                        <marker position="{{tradutor.latitude}}, {{tradutor.longitude}}" ng-repeat="tradutor in tradutoresAmigos" icon="/beachflag.png">
-                        </marker>
-                    </ng-map>
+        <div ng-controller="MapController">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Veja quem está perto de você!</div>
+                    <div class="panel-body">
+                        Latitude: {{location.coords.latitude}} Longitude: {{location.coords.longitude}}
+                        <ng-map zoom="4" center="{{mapLocation}}">
+                            <marker on-click="abreModal(tradutor)" position="{{tradutor.latitude}}, {{tradutor.longitude}}" ng-repeat="tradutor in tradutoresAmigos" icon="/beachflag.png">
+                            </marker>
+                        </ng-map>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Launch demo modal
+                    </button>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Launch demo modal
-                </button>
             </div>
-        </div>
 
-        <!-- Modal -->
-        <div ng-controller="AppController MapController">
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">{{Teste.currentUser._id}}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <ul class="list-group">
-                                <li class="list-group-item" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{idioma.nome}}!</li>
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Entrar em contato</button>
+            <!-- Modal -->
+            <div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">{{currentUser._id}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{tradutorSelecionado.nome}}!</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Entrar em contato</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /Modal -->
         </div>
-        <!-- /Modal -->
 
     </div>
 </body>
