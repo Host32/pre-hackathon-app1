@@ -40,7 +40,5 @@ angular.module('tradutor-amigo').controller('MapController', ['$scope', '$geoloc
                 return Localizacoes.find({});
             }
         });
-
     });
-
 }]);
