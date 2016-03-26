@@ -40,5 +40,11 @@ angular.module('tradutor-amigo').controller('MapController', ['$scope', '$geoloc
                 return Localizacoes.find({});
             }
         });
+
+        $scope.abreModal = function (tradutor) {
+            $('#myModal').modal();
+
+            $scope.tradutorSelecionado = tradutor;
+        };
     });
 }]);
