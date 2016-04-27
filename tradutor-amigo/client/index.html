@@ -4,8 +4,6 @@
     <title>Tradutor Amigo</title>
 
     <script src="https://maps.googleapis.com/maps/api/js">
-
-
     </script>
 </head>
 
@@ -97,14 +95,11 @@
                             </marker>
                         </ng-map>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                        Launch demo modal
-                    </button>
                 </div>
             </div>
 
             <!-- Modal -->
-            <div>
+            <div ng-controller="AppController">
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -116,7 +111,7 @@
                             </div>
                             <div class="modal-body">
                                 <ul class="list-group">
-                                    <li class="list-group-item" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{tradutorSelecionado.nome}}!</li>
+                                    <li class="list-group-item" ng-repeat="idioma in idiomasDoUsuario">Eu sei falar {{idioma.nome}}!</li>
                                 </ul>
                             </div>
                             <div class="modal-footer">
