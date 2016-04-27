@@ -1,1 +1,3 @@
-# pre-hackathon-app1
+# Tradutor Amigo
+
+Toy app for studies.
